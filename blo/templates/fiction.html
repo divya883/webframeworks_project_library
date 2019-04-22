@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+  <div class="Header">
+
+  <h2 align="center">BOOKS</h2><br>
+  <h3 align="center">Fiction</h2>
+  <button onclick="goBack()">Go Back</button>
+
+</div>
+
+<div class ="topPart"
+      <ul>
+      <li><h3>Murder on the Orient Express</h3></li>
+        <p><b><i>-Agatha Cristie</i></b></p>
+        <img src="{% static 'images/tmotheoe.png' %}" alt="Murder on the Orient Express" border=3 align="left" style="width:100px;height:150px;"/>
+<blockquote ><p><b>Murder on the Orient Express by Agatha Christie is a murder mystery that has a Belgian detective Hercule Poirot as the protagonist. It traces the story of the mysterious murder of a fellow companion of Hercule in the compartment of Orient Express on its way to London.<b></p>
+  </blockquote>  </ul>
+  </div>
+
+
+
+  <div class="topPart">
+    <ul>
+      <li><h3>The Alchemist</h3></li>
+        <p><b><i>-Paulo Coehlo</i></b></p><br>
+        <img src="{% static 'images/TheAlchemist.jpg' %}" alt="The Alchemist " border=3 align="left" style="width:100px;height:150px;"/>
+        <blockquote>
+          <p class="b">The Alchemist is a novel by Brazilian author Paulo Coelho that was first published in 1988. Originally written in Portuguese, it became a widely translated international bestseller.
+          An allegorical novel, The Alchemist follows a young Andalusian shepherd in his journey to the pyramids of Egypt, after having a recurring dream of finding a treasure there. </p>
+      </blockquote>
+      </ul>
+</div>
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
+{% endblock%}
+</body>

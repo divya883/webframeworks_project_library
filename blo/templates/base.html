@@ -1,0 +1,53 @@
+
+{% load static %}
+
+<html>
+
+	<head>
+
+		<link rel="stylesheet" href="{% static 'css/home.css' %}">
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+</head>
+
+<body>
+<!--<img src = "book_img2.png" height = "100px" width = "150px">-->
+
+<div class = "header">
+<div id="name"><h1>BookHunters</h1></div>
+
+
+<div class="topnav" id="topnav">
+
+				<a class="btnss" href="{% url 'index' %}">Home</a>
+
+				<a class="btnss" href="{% url 'books' %}">Books</a>
+
+				<a class="btnss" href="{% url 'contact' %}">Contact Us</a>
+				<div class="search-container">
+              <form action="search.php" method = "GET">
+                <input type="text" placeholder="Search for a book..." name="search" target="search">
+                <button type="submit"><img src = "srchimg.png" height = "14px" width = "14px"></button>
+              </form>
+	
+
+          </div><!--close search-container-->
+				<!--<a class="btnss" href = "login.html">Login / Signup</a>-->
+				{% if user.is_authenticated %}
+    User: {{ user.get_username }}
+     <a href="{% url 'my-borrowed' %}">Borrowed Books</a>
+    <a href="{% url 'logout'%}?next={{request.path}}">Logout</a>   
+   {% else %}
+   <a href="{% url 'login'%}?next={{request.path}}">Login</a> 
+	<!--<a href="{% url 'signup' %}?next={{request.path}}">Signup</a> -->
+
+   {% endif %} 
+<a class="btnss" href="{% url 'signup' %}">Signup</a>
+</div><!--close topnav-->
+</div><!--close header-->
+{% block content%}
+{% endblock %}

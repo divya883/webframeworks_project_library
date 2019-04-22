@@ -1,0 +1,13 @@
+
+{% extends 'base.html' %}
+{% block content %}
+
+  <div id="main" class="topPart">
+  <h1 align="center">BOOKS</h1>
+<ul>
+<li>  <a href="{% url 'fiction' %}" >Fiction</a></li><br><br>
+  <li><a href="{% url 'education' %}" >Education</a></li><br><br>
+  <li><a href="{% url 'nonfiction' %}" >Non-Fiction</a></li><br><br>
+</div>
+{% endblock%}
+</body>

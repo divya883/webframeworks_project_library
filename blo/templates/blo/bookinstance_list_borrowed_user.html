@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="topPart">
+    <h1>Borrowed books</h1>
+
+    {% if bookinstance_list %}
+    <ul>
+
+      {% for bookinst in bookinstance_list %} 
+	
+      <li class="{% if bookinst.is_overdue %}text-danger{% endif %}">
+        {{bookinst.book.b_name}}<br>DUE:{{ bookinst.due_back }}     
+      </li>
+	
+      {% endfor %}
+    </ul>
+
+    {% else %}
+      <p>There are no books borrowed.</p>
+    {% endif %}     
+</div>  
+{% endblock %}

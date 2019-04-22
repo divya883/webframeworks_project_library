@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+
+  <div class="Header">
+
+  <h2 align="center">BOOKS</h2><br>
+  <h3 align="center">Non-Fiction</h2>
+    <button  align="left" onclick="goBack()">Go Back</button>
+
+</div>
+
+<div class ="topPart"
+      <ul>
+      <li><h3>The Devil in The White City</h3></li>
+        <p><b><i>-Erik Larson</i></b></p>
+        <img src="{% static 'images/DIWC.png' %}" alt="The Devil in The White City" border=3 align="left" style="width:100px;height:150px;"/>
+        <h4>Erik Larson's gifts as a storyteller are magnificently displayed in this rich narrative of the master builder, the killer, and the great fair that obsessed them both.</h4>
+    </ul>
+  </div>
+
+
+
+  <div class="topPart">
+    <ul>
+      <li><h3>Common Sense</h3></li>
+        <p><b><i>-Thomas Paine</i></b></p><br>
+        <img src="{% static 'images/cs.png' %}" alt="Common Sense " border=3 align="left" style="width:100px;height:150px;"/>
+      </ul>
+      <p><b>Published anonymously in 1776, six months before the Declaration of Independence, Thomas Paines Common Sense was a radical and impassioned call for America to free itself from British rule and set up an independent republican government.</b></p>
+</div>
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
+{% endblock%}
+</body>
