@@ -9,10 +9,9 @@
 
 {% if next %}
   {% if user.is_authenticated %}
-    <p>Your account doesn't have access to this page. To proceed,
-    please login with an account that has access.</p>
+    <p>You have not created an account. Signup to login.</p>
   {% else %}
-    <p>Please login to see this page.</p>
+    <p>Please login to view this page.</p>
   {% endif %}
 {% endif %}
 

@@ -19,9 +19,6 @@ class Book(models.Model):
 		return self.b_name
 
 
-	def get_absolute_url(self):
-		return reverse('book-detail', args=[str(self.b_id)])
-
 class BookInstance(models.Model):
 	id = models.UUIDField(primary_key=True, default=uuid.uuid4)
 	book = models.ForeignKey('Book', on_delete=models.SET_NULL, null=True)
@@ -29,12 +26,6 @@ class BookInstance(models.Model):
 	due_back = models.DateField(null=True, blank=True)
 	borrower = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
 	
-	@property
-	def is_overdue(self):
-		if self.due_back and date.today() > self.due_back:
-			return True
-		return False
-
 	BOOK_STATUS = (
 		('a', 'Available'),
 		('b', 'Borrowed'),
@@ -44,11 +35,9 @@ class BookInstance(models.Model):
 	max_length=1,
 	choices=BOOK_STATUS,
 	blank=True,
-	default='d')
+	default='a')
 
-	class Meta:
-		ordering = ['due_back']
-		permissions = (("can_mark_returned", "Set book as returned"),)
+	
 
 	def __str__(self):
 		return '{0} ({1})'.format(self.id, self.book.b_name)
